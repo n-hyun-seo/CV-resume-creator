@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CV-resume-creator/static/css/main.c80bf328.css",
+    "main.js": "/CV-resume-creator/static/js/main.ba1f2a81.js",
+    "index.html": "/CV-resume-creator/index.html",
+    "main.c80bf328.css.map": "/CV-resume-creator/static/css/main.c80bf328.css.map",
+    "main.ba1f2a81.js.map": "/CV-resume-creator/static/js/main.ba1f2a81.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c80bf328.css",
+    "static/js/main.ba1f2a81.js"
+  ]
+}
