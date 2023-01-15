@@ -1,38 +1,406 @@
-.App {
-  text-align: center;
+#root {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  --header-color: rgba(53, 60, 70, 255);
+  --footer-color: gray;
+  --left-color: rgba(246, 246, 246, 255);
+  --right-color: rgba(240, 240, 240, 255);
+  --title-width: 95%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  width: 100%;
+  height: 7.5%;
+  background-color: var(--header-color);
+  display: flex;
+  align-items: center;
+
+  --input-text-color: rgba(237, 240, 245, 255);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.name-input {
+  border: 0px;
+  background-color: var(--header-color);
+  color: var(--input-text-color);
+  margin-left: 25px;
+  padding: 0px;
+  font-size: 25px;
+  width: 95%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.name-input::placeholder {
+  opacity: 0.8;
+  color: var(--input-text-color);
+}
+
+.page {
+  width: 800px;
+  height: 1000px;
+  background-color: white;
+  box-shadow: 0px 0px 50px 15px gray;
+}
+
+.page-content {
+  height: 92.5%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas: "left left left left left right right";
+
+  --content-text-color: rgba(92, 92, 92, 255);
+  --sub-title-font-size: 14px;
+  --sub-title-font-weight: 600;
+  --sub-info-font-size: 12px;
+  --sub-info-font-size-smaller: 11px;
+}
+
+.titlecontainer {
+  border-bottom: 1px rgba(128, 128, 128, 0.5) solid;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.left {
+  grid-area: left;
+  background-color: var(--left-color);
+  color: var(--content-text-color);
+  padding: 10px 20px 10px 20px;
+}
+
+.description-input {
+  background-color: var(--left-color);
+  border: none;
+  width: 100%;
+  color: var(--content-text-color);
+  resize: none;
+  overflow: visible;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.description-input:empty::before {
+  content: "Enter a description about yourself.";
+}
+
+.experience-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.date {
+  width: 17%;
   display: flex;
   flex-direction: column;
+}
+
+.date-range {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+.start-date-container {
+  display: flex;
+  height: 20px;
   align-items: center;
+}
+
+.start-date,
+.end-date {
+  width: 51px;
+  height: 15px;
+  font-size: var(--sub-info-font-size);
+  font-weight: var(--sub-title-font-weight);
+  background-color: var(--left-color);
+  border: 0px;
+}
+
+.start-date:empty::before,
+.end-date:empty::before {
+  content: "YYYY-MM";
+  font-size: 11px;
+}
+
+.experience-content {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-title {
+  font-size: var(--sub-title-font-size);
+  font-weight: var(--sub-title-font-weight);
+  width: var(--title-width);
+}
+
+.experience-location {
+  font-size: var(--sub-info-font-size);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.experience-responsibilities {
+  font-size: var(--sub-info-font-size);
+  margin-top: 3px;
+  margin-left: -25px;
+}
+
+.experience-title:empty::before {
+  content: "Enter job title.";
+}
+
+.experience-location:empty::before {
+  content: "Enter job location.";
+}
+
+.job-responsibility:empty::before {
+  content: "Enter a job responsibility.";
+}
+
+.education-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.education-content {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.education-title {
+  font-size: var(--sub-title-font-size);
+  font-weight: var(--sub-title-font-weight);
+  width: var(--title-width);
+}
+
+.education-description {
+  font-size: var(--sub-info-font-size);
+  margin-top: 2px;
+}
+
+.education-title:empty::before {
+  content: "Enter education title.";
+}
+
+.education-description:empty::before {
+  content: "Enter education description.";
+}
+
+.certificates-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.certificates-content {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.certificates-description {
+  font-size: var(--sub-info-font-size);
+  margin-top: 2px;
+  width: var(--title-width);
+  
+}
+
+.certificates-description:empty::before {
+  content: "Enter certificate description/title.";
+}
+
+.conferences-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.conferences-content {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.conferences-description {
+  font-size: var(--sub-info-font-size);
+  margin-top: 2px;
+  width: var(--title-width)
+}
+
+.conferences-description:empty::before {
+  content: "Enter conference description.";
+}
+
+.licenses-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.licenses-content {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.licenses-description {
+  font-size: var(--sub-info-font-size);
+  margin-top: 2px;
+  width: var(--title-width);
+}
+
+.licenses-description:empty::before {
+  content: "Enter certificate description/title.";
+}
+
+.right {
+  grid-area: right;
+  background-color: var(--right-color);
+  color: var(--content-text-color);
+  padding: 5px 20px 5px 20px;
+}
+
+.personal-info-title {
+  font-size: var(--sub-title-font-size);
+  font-weight: var(--sub-title-font-weight);
+  padding-top: 5px;
+}
+
+.personal-info-info {
+  background-color: var(--right-color);
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: var(--sub-info-font-size);
+  width: 100%;
+}
+
+#Email,
+#WWW,
+#LinkedIn {
+  font-size: var(--sub-info-font-size-smaller);
+}
+
+#Email::placeholder,
+#WWW::placeholder,
+#LinkedIn::placeholder {
+  font-size: var(--sub-info-font-size);
+}
+
+#LinkedIn {
+  margin-bottom: 5px;
+}
+
+.circles {
+  display: flex;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 2px;
+  background-color: rgb(208, 206, 206);
+}
+
+.fill {
+  background-color: rgba(92, 92, 92, 255);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--sub-title-font-size);
+  font-weight: var(--sub-title-font-weight);
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  margin-left: 115px;
+  margin-top: 20px;
+}
+
+.skill-name {
+  width: 170px;
+  height: 30%;
+  background-color: var(--right-color);
+  border: 0px;
+}
+
+.rating-description {
+  text-align: end;
+  font-size: 13px;
+}
+
+.addSkill {
+  width: 15px;
+  height: 15px;
+}
+
+.Skills,
+.Languages,
+.Experience,
+.Education,
+.Certificates,
+.Conferences,
+.Licenses {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove {
+  width: 0px;
+  height: 20px;
+  font-size: 14px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--left-color);
+  font-weight: var(--sub-title-font-weight);
+  border: 0px;
+  color: rgb(164, 164, 164);
 }
 
-.App-link {
-  color: #61dafb;
+.remove2 {
+  width: 20px;
+  height: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--right-color);
+  font-weight: var(--sub-title-font-weight);
+  border: 0px;
+  color: rgb(164, 164, 164);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.remove:hover, .remove2:hover {
+  color: black;
+}
+
+.titlebox {
+  display: flex;
+  justify-content: space-between;
 }
